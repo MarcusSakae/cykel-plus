@@ -10,7 +10,7 @@ using RunningApp.Data;
 namespace RunningApp.Migrations
 {
     [DbContext(typeof(EfContex))]
-    [Migration("20230511153447_InitialCreate")]
+    [Migration("20230511154050_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

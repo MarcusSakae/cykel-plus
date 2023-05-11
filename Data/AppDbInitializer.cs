@@ -34,6 +34,7 @@ public class AppDbInitializer
                         ProfilePicture = "https://previews.123rf.com/images/aurielaki/aurielaki1606/aurielaki160600025/58881133-running-winner-athletics-summer-games-icon-set-winning-concept-3d-isometric-win-runner-athlete-sport.jpg",
                     }
                 });
+                context.SaveChangesAsync();
             }
         }
     }

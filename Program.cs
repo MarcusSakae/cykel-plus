@@ -2,6 +2,8 @@ using RunningApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<EfContex>();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
