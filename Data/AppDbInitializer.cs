@@ -35,10 +35,10 @@ public class AppDbInitializer
                     }
                 });
                 context.SaveChanges();
-
-                if (!context.RunningInfos.Any())
-                {
-                    context.RunningInfos.AddRange(new List<RunningInfo>()
+            }
+            if (!context.RunningInfos.Any())
+            {
+                context.RunningInfos.AddRange(new List<RunningInfo>()
                     {
                         new RunningInfo()
                         {
@@ -51,9 +51,8 @@ public class AppDbInitializer
                             Users = new(),
                         }
                     });
-                    context.SaveChanges();
+                context.SaveChanges();
 
-                }
             }
         }
     }
