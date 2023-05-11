@@ -30,7 +30,8 @@ public class HomeController : Controller
     [HttpPost]
     public ActionResult Register(User user)
     {
-
+        var result = _context.Add(user);
+        _context.SaveChanges();
         return View();
     }
     public IActionResult Register()
