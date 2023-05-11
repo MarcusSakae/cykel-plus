@@ -17,9 +17,10 @@ public class HomeController : Controller
         _context = context;
     }
 
+    [HttpGet]
     public IActionResult Index()
     {
-        // var runInfos = _context.RunningInfos.ToList();
+        var runInfos = _context.RunningInfos.ToList();
         return View();
     }
 
