@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RunningApp.ApplicationCore;
 using RunningApp.Models;
 using RunningApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace RunningApp.Controllers;
 
@@ -20,17 +21,15 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Index()
     {
-        var runInfos = _context.RunningInfos.ToList();
-        return View();
+        var runInfos = _context.RunningInfos
+            .Include("User")
+            .ToList();
+        return View(runInfos);
     }
 
     [HttpPost]
     public ActionResult Register(User user)
     {
-        _logger.LogInformation("user.FirstName: " + user.FirstName);
-        _logger.LogInformation("user.LastName: " + user.LastName);
-        _logger.LogInformation("user.NickName: " + user.NickName);
-
 
         return View();
     }
