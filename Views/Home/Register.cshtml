@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+      <div
+        class="relative pt-16 pb-32 flex content-center items-center justify-center"
+        style="min-height: 75vh;"
+      >
+        <div
+          class="absolute top-0 w-full h-full bg-center bg-cover"
+          style='background-image: url("/assets/img/gabin-vallet-J154nEkpzlQ-unsplash.jpg");'
+        >
+          <span
+            id="blackOverlay"
+            class="w-full h-full absolute opacity-75 bg-black"
+          ></span>
+        </div>
+        <div class="container relative mx-auto">
+          <div class="items-center flex flex-wrap">
+            <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+              <div class="pr-12">
+                <h1 class="text-white font-semibold text-5xl">
+                  Ska vi springa?
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden"
+          style="height: 70px;"
+        >
+          <svg
+            class="absolute bottom-0 overflow-hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            version="1.1"
+            viewBox="0 0 2560 100"
+            x="0"
+            y="0"
+          >
+            <polygon
+              class="text-white fill-current"
+              points="2560 0 2560 100 0 100"
+            ></polygon>
+          </svg>
+        </div>
+      </div>
+
+      <section class="pt-20 pb-20 bg-white">
+        <div class="container mx-auto px-4">
+          <div class="flex justify-center">
+            <div class="w-full md:w-6/12 px-4 text-center">
+
+
+                
+                @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+                {
+                    <div class="w-full max-w-lg text-left">
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user.FirstName">
+                                    Namn
+                                    @Html.TextBox("user.FirstName", null, new { @class="appearance-none block w-full bg-gray-100 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"})
+                                </label>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Efternamn
+                                    @Html.TextBox("user.LastName", null, new { @class="appearance-none block w-full bg-gray-100 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"})
+                                </label>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user.NickName">
+                                    NickName
+                                    @Html.TextBox("user.NickName", null, new { @class="appearance-none block w-full bg-gray-100 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"})
+                                </label>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                                    Jag önskar oftast springa:
+                                </label>
+                                    <div class="px-3">
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" class="form-radio" name="radio" value="1">                                            
+                                            <span class="ml-2">Snabbt (15-25 km/h)</span>
+                                        </label>
+                                    </div>
+                                    <div class="px-3">
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" class="form-radio" name="radio" value="2">
+                                            <span class="ml-2">Jogg (10-15 km/h)</span>
+                                        </label>
+                                    </div>
+                                    <div class="px-3">
+                                        <label class="inline-flex items-center">
+                                            <input type="radio" class="form-radio" name="radio" value="3">
+                                            <span class="ml-2">Lugnt eller gå (5-10 km/h)</span>
+                                        </label>
+                                    </div>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 flex justify-end">
+                                <input type="submit" class="shadow bg-blue-500 hover:bg-blue-100 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" value="Sign up">
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+          </div>
+        </div>
+      </section>

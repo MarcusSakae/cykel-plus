@@ -1,20 +1,41 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using RunningApp.ApplicationCore;
 using RunningApp.Models;
+using RunningApp.Data;
 
 namespace RunningApp.Controllers;
 
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly EfContex _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, EfContex context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
     {
+        // var runInfos = _context.RunningInfos.ToList();
+        return View();
+    }
+
+    [HttpPost]
+    public ActionResult Register(User user)
+    {
+        _logger.LogInformation("user.FirstName: " + user.FirstName);
+        _logger.LogInformation("user.LastName: " + user.LastName);
+        _logger.LogInformation("user.NickName: " + user.NickName);
+
+
+        return View();
+    }
+    public IActionResult Register()
+    {
+        _logger.LogInformation("---Register---");
         return View();
     }
 

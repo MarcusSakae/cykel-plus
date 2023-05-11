@@ -1,6 +1,8 @@
 using RunningApp.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 builder.Services.AddDbContext<EfContex>();
 
