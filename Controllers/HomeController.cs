@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using cykel_plus.Models;
+using RunningApp.Models;
 
-namespace cykel_plus.Controllers;
+namespace RunningApp.Controllers;
 
 public class HomeController : Controller
 {

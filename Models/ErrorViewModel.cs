@@ -1,4 +1,4 @@
-namespace cykel_plus.Models;
+namespace RunningApp.Models;
 
 public class ErrorViewModel
 {
