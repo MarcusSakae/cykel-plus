@@ -6,6 +6,7 @@ namespace RunningApp.Data;
 public class EfContex : DbContext
 {
     public DbSet<User> Users { get; set; }
+    public DbSet<RunningInfo> RunningInfos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {

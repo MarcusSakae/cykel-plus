@@ -27,14 +27,33 @@ public class AppDbInitializer
 
                     new User()
                     {
-                         FirstName = "Marcus",
+                        FirstName = "Marcus",
                         LastName = "Sakae",
                         NickName = "SUGOIBOY",
                         Email = "Marcu@hotmail.com",
                         ProfilePicture = "https://previews.123rf.com/images/aurielaki/aurielaki1606/aurielaki160600025/58881133-running-winner-athletics-summer-games-icon-set-winning-concept-3d-isometric-win-runner-athlete-sport.jpg",
                     }
                 });
-                context.SaveChangesAsync();
+                context.SaveChanges();
+
+                if (!context.RunningInfos.Any())
+                {
+                    context.RunningInfos.AddRange(new List<RunningInfo>()
+                    {
+                        new RunningInfo()
+                        {
+                            Distance = 4.5,
+                            Tempo = 7,
+                            Y = 57.7246334,
+                            X = 12.5982012,
+                            StartTime = DateTime.Now,
+                            User = context.Users.FirstOrDefault(),
+                            Users = new(),
+                        }
+                    });
+                    context.SaveChanges();
+
+                }
             }
         }
     }
