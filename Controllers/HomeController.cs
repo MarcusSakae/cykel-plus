@@ -66,7 +66,7 @@ public class HomeController : Controller
     }
 
     [HttpPost("GetRunningInfo")]
-    public IActionResult GetRunningInfo(DateTime startTime, string track, int tempo, int userId)
+    public IActionResult GetRunningInfo(DateTime startTime, int distance, string track, int tempo, int userId)
     {
         _logger.LogInformation("---startTime---" + startTime);
         _logger.LogInformation("---track---" + track);
