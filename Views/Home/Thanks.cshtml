@@ -1,14 +1,28 @@
-@using RunningApp.ApplicationCore
+@using RunningApp.ApplicationCore;
 
-@Model
+@model User
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
-<p>Registrationen är klar</p>
-<p>Kör hårt</p>
-<p>@Model.userId</p>
+<div style="background-color: black; height: 55px"></div>
+<section class="pt-20 pb-20 bg-blue">
+    <div class="container mx-auto px-4">
+        <div class="flex justify-center">
+            <div class="w-full md:w-6/12 px-4 text-center">
+                <div style="color: green; text-align: center; font-size: 50px; font-weight: bold;">
+                    <p>Registrationen är klar</p>
+                    <p>Kör hårt</p>
+                    <video class="" src="/assets/run1.mp4" autoplay muted loop></video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <script>
-    localStorage.setItem(userId, @Model.userId)
+    localStorage.setItem("userId", @Model.Id)
 </script>

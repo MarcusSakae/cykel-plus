@@ -32,7 +32,7 @@ public class HomeController : Controller
     {
         var result = _context.Add(user);
         _context.SaveChanges();
-        return View("Thanks", result);
+        return View("Thanks", user);
     }
     public IActionResult Register()
     {
