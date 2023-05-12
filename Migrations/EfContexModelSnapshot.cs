@@ -94,14 +94,12 @@ namespace RunningApp.Migrations
                     b.Property<int>("Tempo")
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Track")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
-
-                    b.Property<double>("X")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("Y")
-                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 

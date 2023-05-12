@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace RunningApp.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,8 +19,7 @@ namespace RunningApp.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Distance = table.Column<double>(type: "REAL", nullable: false),
                     Tempo = table.Column<int>(type: "INTEGER", nullable: false),
-                    X = table.Column<double>(type: "REAL", nullable: false),
-                    Y = table.Column<double>(type: "REAL", nullable: false),
+                    Track = table.Column<string>(type: "TEXT", nullable: false),
                     StartTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
@@ -39,7 +38,7 @@ namespace RunningApp.Migrations
                     LastName = table.Column<string>(type: "TEXT", nullable: false),
                     NickName = table.Column<string>(type: "TEXT", nullable: false),
                     Email = table.Column<string>(type: "TEXT", nullable: false),
-                    ProfilePicture = table.Column<string>(type: "TEXT", nullable: false),
+                    ProfilePicture = table.Column<string>(type: "TEXT", nullable: true),
                     RunningInfoId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -52,9 +51,47 @@ namespace RunningApp.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.CreateTable(
+                name: "RunningPointInfos",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    RunningInfoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    X = table.Column<double>(type: "REAL", nullable: false),
+                    Y = table.Column<double>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RunningPointInfos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RunningPointInfos_RunningInfos_RunningInfoId",
+                        column: x => x.RunningInfoId,
+                        principalTable: "RunningInfos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_RunningPointInfos_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_RunningInfos_UserId",
                 table: "RunningInfos",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RunningPointInfos_RunningInfoId",
+                table: "RunningPointInfos",
+                column: "RunningInfoId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RunningPointInfos_UserId",
+                table: "RunningPointInfos",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
@@ -77,6 +114,9 @@ namespace RunningApp.Migrations
             migrationBuilder.DropForeignKey(
                 name: "FK_RunningInfos_Users_UserId",
                 table: "RunningInfos");
+
+            migrationBuilder.DropTable(
+                name: "RunningPointInfos");
 
             migrationBuilder.DropTable(
                 name: "Users");

@@ -44,6 +44,7 @@ public class AppDbInitializer
                         {
                             Distance = 4.5,
                             Tempo = 7,
+                            Track = "Kransmossen",
                             StartTime = DateTime.Now,
                             User = context.Users.FirstOrDefault(),
                             Users = new(),
