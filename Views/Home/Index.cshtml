@@ -73,14 +73,9 @@
               <i class="fas fa-running"></i>
             </div>
             <h6 class="text-xl font-semibold">Hitta någon att springa med!</h6>
-            <button
-              id="toggle-create-run"
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5">
-              Skapa löp runda?
-              <span class="fas fa-running"></span>
-            </button>
+
           </div>
-          @using (Html.BeginForm("Register", "Home", FormMethod.Post)) 
+          @using (Html.BeginForm("GetRunningInfo", "Home", FormMethod.Post)) 
           {
           <div class="px-4 pt-4 pb-5 flex flex-col">
 
