@@ -44,8 +44,6 @@ public class AppDbInitializer
                         {
                             Distance = 4.5,
                             Tempo = 7,
-                            Y = 57.7246334,
-                            X = 12.5982012,
                             StartTime = DateTime.Now,
                             User = context.Users.FirstOrDefault(),
                             Users = new(),

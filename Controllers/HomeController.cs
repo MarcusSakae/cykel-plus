@@ -49,10 +49,10 @@ public class HomeController : Controller
     [HttpPost("info")]
     public ActionResult Point(int userId, int runningInfoId, double x, double y)
     {
-        _logger.LogInformation("---x---");
-        _logger.LogInformation("---y---");
-        _logger.LogInformation("---userId---");
-        _logger.LogInformation("---runningInfos---");
+        _logger.LogInformation("---x---" + x);
+        _logger.LogInformation("---y---" + y);
+        _logger.LogInformation("---userId---" + userId);
+        _logger.LogInformation("---runningInfos---" + runningInfoId);
 
         var result = _context.Add(new RunningPointInfo
         {
@@ -63,6 +63,25 @@ public class HomeController : Controller
         });
         _context.SaveChanges();
         return View("SavePoint");
+    }
+
+    [HttpPost("runningInfo")]
+    public IActionResult GetRunningInfo(DateTime startTime, string track, int tempo, User user)
+    {
+        _logger.LogInformation("---startTime---" + startTime);
+        _logger.LogInformation("---track---" + track);
+        _logger.LogInformation("---tempo---" + tempo);
+        _logger.LogInformation("---user.id---" + user.Id);
+
+        var result = _context.Add(new RunningInfo
+        {
+            StartTime = startTime,
+            Track = track,
+            Tempo = tempo,
+            User = _context.Users.Find(user.Id)
+        });
+
+        return View("InfoCompleted");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
