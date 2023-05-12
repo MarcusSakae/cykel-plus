@@ -65,20 +65,20 @@ public class HomeController : Controller
         return View("SavePoint");
     }
 
-    [HttpPost("runningInfo")]
-    public IActionResult GetRunningInfo(DateTime startTime, string track, int tempo, User user)
+    [HttpPost("GetRunningInfo")]
+    public IActionResult GetRunningInfo(DateTime startTime, string track, int tempo, int userId)
     {
         _logger.LogInformation("---startTime---" + startTime);
         _logger.LogInformation("---track---" + track);
         _logger.LogInformation("---tempo---" + tempo);
-        _logger.LogInformation("---user.id---" + user.Id);
+        _logger.LogInformation("---userid---" + userId);
 
         var result = _context.Add(new RunningInfo
         {
             StartTime = startTime,
             Track = track,
             Tempo = tempo,
-            User = _context.Users.Find(user.Id)
+            User = _context.Users.Find(userId)
         });
 
         return View("InfoCompleted");
