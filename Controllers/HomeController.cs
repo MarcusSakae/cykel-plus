@@ -80,7 +80,7 @@ public class HomeController : Controller
             Tempo = tempo,
             User = _context.Users.Find(userId)
         });
-
+        _context.SaveChanges();
         return View("InfoCompleted");
     }
 
