@@ -1,6 +1,14 @@
+@using RunningApp.ApplicationCore
+
+@Model
+
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <p>Registrationen är klar</p>
 <p>Kör hårt</p>
+<p>@Model.userId</p>
+<script>
+    localStorage.setItem(userId, @Model.userId)
+</script>

@@ -41,6 +41,7 @@
    const yid = document.querySelector("#yid");
    xid.value= 23;
    navigator.geolocation.getCurrentPosition( (pos, err) => {
+        console.log(err);
         xid.value = pos.coords.longitude;
         yid.value = pos.coords.latitude;
     });
