@@ -120,7 +120,11 @@
         </div>
       </div>
     </div>
-
+    <div class="flex flex-wrap items-center mt-32">
+      <div class="w-full px-4 mr-auto ml-auto">
+          <div id="map" style="width:100%; height:600px;max-height:60vh;">
+          </div>
+      </div>
     <div class="flex flex-wrap items-center mt-32">
       <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
         <div
@@ -128,7 +132,6 @@
         >
           <i class="fas fa-user-friends text-xl"></i>
         </div>
-        <div id =”my-map” style = “width:800px; height:600px;”></div>
         <h3 class="text-3xl mb-2 font-semibold leading-normal">
           Uppkommande springturer
         </h3>
@@ -291,18 +294,19 @@
     promptRun.classList.toggle("hidden");
     loadRun.classList.toggle("hidden");
   });
- // Creating map options
- var mapOptions = {
- center: [17.385044, 78.486671],
- zoom: 10
- }
+
+  
+  var mapOptions = {
+    center: [57.7233, 12.92], //borås
+      zoom: 13
+  }
  
- // Creating a map object
- var map = new L.map("map", mapOptions);
- 
- // Creating a Layer object
- var layer = new     L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
- 
- // Adding layer to the map
- map.addLayer(layer);
+  // Creating a map object
+  var map = new L.map("map", mapOptions);
+  
+  // Creating a Layer object
+  var layer = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png");
+  
+  // Adding layer to the map
+  map.addLayer(layer);
  </script>

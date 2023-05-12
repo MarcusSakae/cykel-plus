@@ -38,6 +38,10 @@
 </div>
 <script>
    const xid = document.querySelector("#xid");
+   const yid = document.querySelector("#yid");
    xid.value= 23;
-   navigator.geolocation.getCurrentPosition( pos => console.log(pos) );
+   navigator.geolocation.getCurrentPosition( (pos, err) => {
+        xid.value = pos.coords.longitude;
+        yid.value = pos.coords.latitude;
+    });
 </script>
