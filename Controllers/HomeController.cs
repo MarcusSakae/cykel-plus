@@ -40,6 +40,20 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpGet]
+    public IActionResult SavePoint()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public ActionResult Point(RunningPointInfo runningPointInfo)
+    {
+        var result = _context.Add(runningPointInfo);
+        _context.SaveChanges();
+        return View("Point");
+    }
+
     public IActionResult Privacy()
     {
         return View();

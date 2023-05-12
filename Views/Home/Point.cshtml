@@ -1,0 +1,36 @@
+  @using (Html.BeginForm("SavePoint", "Home", FormMethod.Post))
+                {
+                    <div class="w-full max-w-lg text-left">
+                        <div class="flex flex-wrap -mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user.FirstName">
+                                    UserId
+                                    @Html.TextBox("runningInfoPoint.UserId", null, new { @class="appearance-none block w-full bg-gray-100 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"})
+                                </label>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    RunningInfoId
+                                    @Html.TextBox("runningInfoPoint.RunningInfoId", null, new { @class="appearance-none block w-full bg-gray-100 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"})
+                                </label>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user.NickName">
+                                    X
+                                    @Html.TextBox("runningInfoPoint.X", null, new { @class="appearance-none block w-full bg-gray-100 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"})
+                                </label>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="user.Email">
+                                    Y
+                                    @Html.TextBox("runningInfoPoint.Y", null, new { @class="appearance-none block w-full bg-gray-100 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"})
+                                </label>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 flex justify-end">
+                                <input type="submit" class="shadow bg-blue-500 hover:bg-blue-100 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" value="Sign up">
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
