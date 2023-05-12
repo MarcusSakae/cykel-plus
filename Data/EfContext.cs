@@ -7,6 +7,7 @@ public class EfContex : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<RunningInfo> RunningInfos { get; set; }
+    public DbSet<RunningPointInfo> RunningPointInfos { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {

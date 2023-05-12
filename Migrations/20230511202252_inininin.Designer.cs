@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RunningApp.Data;
 
@@ -10,39 +11,14 @@ using RunningApp.Data;
 namespace RunningApp.Migrations
 {
     [DbContext(typeof(EfContex))]
-    partial class EfContexModelSnapshot : ModelSnapshot
+    [Migration("20230511202252_inininin")]
+    partial class inininin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.5");
-
-            modelBuilder.Entity("RunningApp.ApplicationCore.RunningPointInfo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("RunningInfoId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<double>("X")
-                        .HasColumnType("REAL");
-
-                    b.Property<double>("Y")
-                        .HasColumnType("REAL");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RunningInfoId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("RunningPointInfos");
-                });
 
             modelBuilder.Entity("RunningApp.ApplicationCore.User", b =>
                 {
@@ -108,25 +84,6 @@ namespace RunningApp.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("RunningInfos");
-                });
-
-            modelBuilder.Entity("RunningApp.ApplicationCore.RunningPointInfo", b =>
-                {
-                    b.HasOne("RunningApp.RunningInfo", "RunningInfo")
-                        .WithMany()
-                        .HasForeignKey("RunningInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("RunningApp.ApplicationCore.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("RunningInfo");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("RunningApp.ApplicationCore.User", b =>

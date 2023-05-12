@@ -6,5 +6,5 @@ public class User : BaseEntity
     public string LastName { get; set; }
     public string NickName { get; set; }
     public string Email { get; set; }
-    public string ProfilePicture { get; set; }
+    public string? ProfilePicture { get; set; }
 }
